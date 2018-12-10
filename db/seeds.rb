@@ -1,7 +1,18 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+dpt_arr = ['Electronics', 'Home', 'Clothes', 'Toys', 'Pharmacy']
+@price_arr = [11.50, 29.99, 14.35, 65.99, 304.50]
+
+dpt_arr.each do |name|
+  d = Department.create(
+    name: name
+  )
+  10.times do
+    d.items.create(
+      name: Faker::Appliance.brand,
+      description: Faker::Appliance.equipment,
+      qty: Faker::Number.between(1, 10),
+      price: @price_arr.sample
+    )
+  end
+end
+
+puts 'seeded'

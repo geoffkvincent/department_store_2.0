@@ -28,7 +28,7 @@ class Api::ItemsController < ApplicationController
     end
   end
 
-  def destroy
+  def destroy 
     @item.destroy
   end
 

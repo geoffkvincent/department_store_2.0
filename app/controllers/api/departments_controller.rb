@@ -1,6 +1,6 @@
 class Api::DepartmentsController < ApplicationController
   before_action :set_department, only: [:show, :update, :destroy]
-  
+
   def index
     render json: Department.all
   end
@@ -13,7 +13,7 @@ class Api::DepartmentsController < ApplicationController
     department = Department.new(department_params)
 
     if department.save
-      render: json
+      render json: department 
     else
       render json: { errors: department.errors }
     end
@@ -24,6 +24,7 @@ class Api::DepartmentsController < ApplicationController
       render json: @department
       else
         render json: @department.errors
+      end
   end
 
   def destroy

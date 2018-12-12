@@ -6,7 +6,13 @@ const Department = ({ name, description, id }) => (
     <Link to={`/departments/${id}`} >
       <h1>{name}</h1>
     </Link>
-    <p>{description}</p>  
+    <p>{description}</p> 
+    <Link to={`/departments/${id}`}>
+      <button>Edit</button>
+    </Link> 
+    <Link to={`/departments/${id}`}>
+      <button>Delete</button>
+    </Link> 
   </div>
 )
 

@@ -5,7 +5,6 @@ class Items extends React.Component {
   state = {items: [] }
 
   componentDidMount() {
-    debugger
     const {id} = this.props.match.params
     axios.get(`/api/departments/${id}/items`)
       .then( res => this.setState({ items: res.data }))
@@ -13,7 +12,7 @@ class Items extends React.Component {
 
   render() {
     return(
-      <h1>null</h1>
+      <div></div>
     )
   }
   

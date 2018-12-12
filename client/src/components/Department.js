@@ -17,6 +17,7 @@ class Department extends React.Component {
           {name}
         </Link>
         <p>{description}</p>
+        
       </div>
     )
   }

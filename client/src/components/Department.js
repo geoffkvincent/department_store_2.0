@@ -1,6 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 import {Link} from 'react-router-dom'
+import Items from './Items'
 
 class Department extends React.Component {
   state = {items: [] }
@@ -19,6 +20,7 @@ class Department extends React.Component {
           {name}
         </Link>
         <p>{description}</p>  
+        <Items />
       </div>
     )
   }

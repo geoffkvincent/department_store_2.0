@@ -15,7 +15,12 @@ class Items extends React.Component {
       <div>
         <ul>
           {this.state.items.map(item => (
-            <li key={item.id}>{item.name}</li>
+            <li key={item.id}>
+            <h1>{item.name}</h1>
+            <p>{`Description: ${item.description}`}</p>
+            <p>{`qty: ${item.qty}`}</p>
+            <p>{`price: ${item.price}`}</p>
+            </li>
           ))}
         </ul>
       </div>

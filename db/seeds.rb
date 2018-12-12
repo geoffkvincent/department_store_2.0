@@ -3,7 +3,8 @@ dpt_arr = ['Electronics', 'Home', 'Clothes', 'Toys', 'Pharmacy']
 
 dpt_arr.each do |name|
   d = Department.create(
-    name: name
+    name: name,
+    description: Faker::TwinPeaks.quote
   )
   10.times do
     d.items.create(

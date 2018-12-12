@@ -6,7 +6,9 @@ class Department extends React.Component {
   state = {items: [] }
 
   componentDidMount() {
-
+    const {id} = this.props
+    axios.get(`api/departments/${id}/items`)
+      .then( res => this.setState({ items: res.data }))
   }
 
   render() {
@@ -16,8 +18,7 @@ class Department extends React.Component {
         <Link to={`api/departments/${id}`} >
           {name}
         </Link>
-        <p>{description}</p>
-        
+        <p>{description}</p>  
       </div>
     )
   }

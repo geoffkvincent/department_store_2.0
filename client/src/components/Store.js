@@ -1,5 +1,7 @@
 import React from 'react'
 import axios from 'axios'
+import Department from './Department'
+
 
 class Store extends React.Component {
   state = { departments: [] }
@@ -13,8 +15,8 @@ class Store extends React.Component {
     return (
       <div>
         {this.state.departments.map(d => (
-          <h1 key={d.id}>{d.name}</h1>
-            )
+          <Department key={d.id} departments={d.name} />  
+          )
         )}
       </div>
     )

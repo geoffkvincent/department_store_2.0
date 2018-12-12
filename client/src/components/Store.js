@@ -15,7 +15,7 @@ class Store extends React.Component {
     return (
       <div>
         {this.state.departments.map(d => (
-           <Department key={d.id} name={d.name} description={d.description} />  
+           <Department key={d.id} name={d.name} description={d.description} id={d.id} />  
           )
         )}
       </div>

@@ -24,7 +24,7 @@ class Api::ItemsController < ApplicationController
     if @item.update(item_params)
       render json: @item
     else
-      render json: error.@item
+      render json: error.item
     end
   end
 
@@ -35,7 +35,7 @@ class Api::ItemsController < ApplicationController
   private
 
   def set_department
-    @department = Deparment.find(params[:department_id])
+    @department = Department.find(params[:department_id])
   end
 
   def set_item

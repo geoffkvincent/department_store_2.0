@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom'
 
 const Department = ({ name, description, id }) => (
   <div>
-    <Link to={`api/departments/${id}`} >
+    <Link to={`/departments/${id}`} >
       {name}
     </Link>
     <p>{description}</p>  

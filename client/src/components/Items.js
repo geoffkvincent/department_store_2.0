@@ -12,7 +12,13 @@ class Items extends React.Component {
 
   render() {
     return(
-      <div></div>
+      <div>
+        <ul>
+          {this.state.items.map(item => (
+            <li key={item.id}>{item.name}</li>
+          ))}
+        </ul>
+      </div>
     )
   }
   

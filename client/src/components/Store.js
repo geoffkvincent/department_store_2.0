@@ -12,6 +12,10 @@ class Store extends React.Component {
       .then(res => this.setState({ departments: res.data }))
   }
 
+  handleDelete = (id) => {
+    
+  }
+
   render() {
     return (
       <div>
@@ -19,8 +23,14 @@ class Store extends React.Component {
         <Link to="/departments/new">
           <button>Create Department</button>
         </Link>
-        {this.state.departments.map(d => (
-           <Department key={d.id} name={d.name} description={d.description} id={d.id} />  
+        { this.state.departments.map(d => (
+            <Department 
+              key={d.id} 
+              name={d.name} 
+              description={d.description} 
+              id={d.id}
+              handleDelete={this.handleDelete} 
+            />  
           )
         )}
       </div>

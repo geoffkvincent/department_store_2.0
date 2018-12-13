@@ -29,7 +29,7 @@ class Store extends React.Component {
               name={d.name} 
               description={d.description} 
               id={d.id}
-              handleDelete={this.handleDelete} 
+              handleDelete={this.handleDelete()} 
             />  
           )
         )}

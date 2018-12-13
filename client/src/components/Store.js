@@ -12,11 +12,6 @@ class Store extends React.Component {
       .then(res => this.setState({ departments: res.data }))
   }
 
-  addDepartment = () => {
-    axios.post(('/api/departments'), {...this.state})
-    .then( this.props.history.push('/departments'))
-  }
-
   render() {
     return (
       <div>

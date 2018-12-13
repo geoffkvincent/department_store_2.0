@@ -1,5 +1,6 @@
 import React from 'react'
 import { Form } from 'semantic-ui-react'
+import axios from 'axios'
 
 class DepForm extends React.Component {
   state = { name: '', description: '' }
@@ -11,6 +12,8 @@ class DepForm extends React.Component {
 
   handleSubmit = (e) => {
     e.preventDefault()
+    axios.post(('api/departments'), {...this.state})
+      .then( this.props.history.push('/'))
   }
 
   render() {

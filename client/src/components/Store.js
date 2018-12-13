@@ -12,6 +12,8 @@ class Store extends React.Component {
       .then(res => this.setState({ departments: res.data }))
   }
 
+  
+
   render() {
     return (
       <div>

@@ -16,6 +16,21 @@ class Store extends React.Component {
     
   }
 
+  renderDepartments = () => {
+    return (
+      this.state.departments.map(d => (
+        <Department 
+          key={d.id} 
+          name={d.name} 
+          description={d.description} 
+          id={d.id}
+          handleDelete={this.handleDelete()} 
+        />  
+        )
+      )
+    )
+  }
+
   render() {
     return (
       <div>
@@ -23,16 +38,7 @@ class Store extends React.Component {
         <Link to="/departments/new">
           <button>Create Department</button>
         </Link>
-        { this.state.departments.map(d => (
-            <Department 
-              key={d.id} 
-              name={d.name} 
-              description={d.description} 
-              id={d.id}
-              handleDelete={this.handleDelete()} 
-            />  
-          )
-        )}
+        {this.renderDepartments()}
       </div>
     )
   }

@@ -30,9 +30,9 @@ class Items extends React.Component {
       })
   }
 
-  render() {
+  renderItems = () => {
     const { name, id } = this.state.dep
-    return(
+    return (
       <div>
         <h1>{name}</h1>
         <Link to={`/departments/${id}/items/new`}>
@@ -51,6 +51,14 @@ class Items extends React.Component {
           ))}
         </ul>
       </div>
+    )
+  }
+
+  render() {
+    return(
+      <>
+        {this.renderItems()}
+      </>
     )
   }
   

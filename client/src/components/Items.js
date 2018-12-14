@@ -20,6 +20,8 @@ class Items extends React.Component {
             <p>{`Description: ${item.description}`}</p>
             <p>{`qty: ${item.qty}`}</p>
             <p>{`price: ${item.price}`}</p>
+            <button>Edit</button>
+            <button>Delete</button>
             </li>
           ))}
         </ul>

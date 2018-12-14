@@ -34,7 +34,7 @@ class Api::DepartmentsController < ApplicationController
   private
 
   def set_department
-    @department = Department.find(params)
+    @department = Department.find(params[:id])
   end
 
   def department_params

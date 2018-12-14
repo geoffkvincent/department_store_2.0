@@ -7,18 +7,22 @@ import { Container } from 'semantic-ui-react'
 import styled from 'styled-components'
 import Navbar from './components/Navbar'
 
-const App = () => (
-  <>
-    <Navbar />
-    <Container as={AppStyle}>
-      <Switch>
-        <Route exact path="/" component={Store}/>
-        <Route exact path="/departments/new" component={DepForm} />
-        <Route exact path="/departments/:id" component={Items} />
-      </Switch>
-    </Container>
-  </>
-)
+class App extends React.Component {
+  render() {
+    return (
+      <>
+        <Navbar />
+        <Container as={AppStyle}>
+          <Switch>
+            <Route exact path="/" component={Store}/>
+            <Route exact path="/departments/new" component={DepForm} />
+            <Route exact path="/departments/:id" component={Items} />
+          </Switch>
+        </Container>
+      </>
+    )
+  }
+}
 
 const AppStyle = styled.div`
   padding: 45px;

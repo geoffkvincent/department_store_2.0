@@ -20,10 +20,16 @@ class Store extends React.Component {
           name={d.name} 
           description={d.description} 
           id={d.id}   
+          handleDelete={this.handleDelete()}
         />  
         )
       )
     )
+  }
+
+  handleDelete = (id) => {
+    axios.delete(`api/departments/${id}`)
+      .then(res => this.props.history.push('/'))
   }
 
   render() {

@@ -10,9 +10,9 @@ const Department = ({ name, description, id, handleDelete }) => (
     <Link to={`/departments/${id}`}>
       <button>Edit</button>
     </Link> 
-    <button onClick={() => handleDelete(id)}>
+    {/* <button onClick={() => handleDelete(id)}>
       Delete
-    </button>
+    </button> */}
   
   </div>
 )

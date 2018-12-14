@@ -12,6 +12,10 @@ class Items extends React.Component {
       .then( res => this.setState({dep: res.data }))
   }
 
+  addItem = () => {
+    
+  }
+
   deleteItem = (itemId) => {
     const {id} = this.props.match.params
     axios.delete(`/api/departments/${id}/items/${itemId}`)
@@ -30,6 +34,7 @@ class Items extends React.Component {
     return(
       <div>
         <h1>{name}</h1>
+        <button onClick={this.addItem}>Add Item</button>
         <ul>
           {this.state.items.map(item => (
             <li key={item.id}>

@@ -11,9 +11,13 @@ class Store extends React.Component {
     axios.get('api/departments')
       .then(res => this.setState({ departments: res.data }))
   }
+   componentDidUpdate(prevProps,prevState) {
+   
+   }
 
   handleDelete = (id) => {
-    
+    axios.delete(`/api/departments/${id}`)
+      .then( this.props.history.push("/"))
   }
 
   renderDepartments = () => {
@@ -31,6 +35,8 @@ class Store extends React.Component {
     )
   }
 
+  
+
   render() {
     return (
       <div>
@@ -39,6 +45,7 @@ class Store extends React.Component {
           <button>Create Department</button>
         </Link>
         {this.renderDepartments()}
+        
       </div>
     )
   }

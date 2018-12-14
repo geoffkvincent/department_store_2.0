@@ -12,6 +12,10 @@ class Items extends React.Component {
       .then( res => this.setState({dep: res.data }))
   }
 
+  deleteItem = (id, itemId) => {
+    axios.delete(`api/departments/${id}/items/${itemId}`)
+  }
+
   render() {
     return(
       <div>
@@ -24,7 +28,7 @@ class Items extends React.Component {
             <p>{`qty: ${item.qty}`}</p>
             <p>{`price: ${item.price}`}</p>
             <button>Edit</button>
-            <button>Delete</button>
+            <button onClick={() => this.deleteItem(item.id)}>Delete</button>
             </li>
           ))}
         </ul>

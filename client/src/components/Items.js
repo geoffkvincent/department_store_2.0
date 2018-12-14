@@ -1,6 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
+import { Card, Button, Header} from 'semantic-ui-react'
 
 class Items extends React.Component {
   state = {items: [], dep: {} }
@@ -11,10 +12,6 @@ class Items extends React.Component {
       .then( res => this.setState({ items: res.data }))
     axios.get(`/api/departments/${id}`)
       .then( res => this.setState({dep: res.data }))
-  }
-
-  addItem = () => {
-
   }
 
   deleteItem = (itemId) => {
@@ -31,33 +28,39 @@ class Items extends React.Component {
   }
 
   renderItems = () => {
-    const { name, id } = this.state.dep
-    return (
-      <div>
-        <h1>{name}</h1>
-        <Link to={`/departments/${id}/items/new`}>
-        <button onClick={this.addItem}>Add Item</button>
-        </Link>
-        <ul>
-          {this.state.items.map(item => (
-            <li key={item.id}>
-            <h1>{item.name}</h1>
-            <p>{`Description: ${item.description}`}</p>
-            <p>{`qty: ${item.qty}`}</p>
-            <p>{`price: ${item.price}`}</p>
-            <button>Edit</button>
-            <button onClick={() => this.deleteItem(item.id)}>Delete</button>
-            </li>
-          ))}
-        </ul>
-      </div>
+    return (    
+      <>
+        {this.state.items.map(item => (
+        <Card>
+          <Card.Content>
+            <div key={item.id}>
+              <Card.Header>{item.name}</Card.Header>
+              <Card.Meta>{`qty: ${item.qty}`}</Card.Meta>
+              <Card.Description>{`Description: ${item.description}`}</Card.Description>
+              <p>{`price: $${item.price}`}</p>
+            </div>
+          </Card.Content>
+          <Card.Content extra>
+            <Button>Edit</Button>
+            <Button onClick={() => this.deleteItem(item.id)}>Delete</Button>
+          </Card.Content>
+        </Card>
+        ))}
+      </>
     )
   }
 
   render() {
+    const { name, id } = this.state.dep
     return(
       <>
-        {this.renderItems()}
+        <Header>{name}</Header>
+        <Link to={`/departments/${id}/items/new`}>
+          <Button onClick={this.addItem}>Add Item</Button>
+        </Link>
+        <Card.Group itemsPerRow={3}>
+          {this.renderItems()}
+        </Card.Group>
       </>
     )
   }

@@ -1,5 +1,6 @@
 import React from 'react'
 import axios from 'axios'
+import { Link } from 'react-router-dom'
 
 class Items extends React.Component {
   state = {items: [], dep: {} }
@@ -13,7 +14,7 @@ class Items extends React.Component {
   }
 
   addItem = () => {
-    
+
   }
 
   deleteItem = (itemId) => {
@@ -30,11 +31,13 @@ class Items extends React.Component {
   }
 
   render() {
-    const { name } = this.state.dep
+    const { name, id } = this.state.dep
     return(
       <div>
         <h1>{name}</h1>
+        <Link to={`/departments/${id}/items/new`}>
         <button onClick={this.addItem}>Add Item</button>
+        </Link>
         <ul>
           {this.state.items.map(item => (
             <li key={item.id}>

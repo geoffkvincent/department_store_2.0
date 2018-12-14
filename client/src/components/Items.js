@@ -14,6 +14,14 @@ class Items extends React.Component {
 
   deleteItem = (id, itemId) => {
     axios.delete(`api/departments/${id}/items/${itemId}`)
+      .then( res => {
+        const items = this.state.items.filter( item => {
+          if(item.id !== itemId)
+            return item
+              return null
+        })
+        this.setState({ items })
+      })
   }
 
   render() {

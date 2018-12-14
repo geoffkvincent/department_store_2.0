@@ -2,6 +2,7 @@ import React from 'react'
 import axios from 'axios'
 import Department from './Department'
 import { Link } from 'react-router-dom'
+import { Card, Header, Button, Segment } from 'semantic-ui-react'
 
 
 class Store extends React.Component {
@@ -41,13 +42,15 @@ class Store extends React.Component {
 
   render() {
     return (
-      <div>
-        <h1>Department Store 2.0</h1>
+      <Segment>
+        <Header as='h1'>Department Store 2.0</Header>
         <Link to="/departments/new">
-          <button>Create Department</button>
+          <Button>Create Department</Button>
         </Link>
-        {this.renderDepartments()}
-      </div>
+        <Card.Group>
+          {this.renderDepartments()}
+        </Card.Group>
+      </Segment>
     )
   }
 }

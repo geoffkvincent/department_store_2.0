@@ -1,18 +1,23 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
+import { Card, Button } from 'semantic-ui-react'
 
 const Department = ({ name, description, id, handleDelete }) => {
   return (
-    <div>
-      <Link to={`/departments/${id}`} >
-        <h1>{name}</h1>
-      </Link>
-      <p>{description}</p> 
-      <Link to={`/departments/${id}`}>
-        <button>Edit</button>
-      </Link>
-      <button onClick={() => handleDelete(id)}>Delete</button>
-    </div>
+    <Card>
+      <Card.Content>
+        <Link to={`/departments/${id}`} >
+          <Card.Header>{name}</Card.Header>
+        </Link>
+        <Card.Description>{description}</Card.Description> 
+      </Card.Content>
+      <Card.Content>
+        <Link to={`/departments/${id}`}>
+          <Button>Edit</Button>
+        </Link>
+        <Button onClick={() => handleDelete(id)}>Delete</Button>
+      </Card.Content>
+    </Card>
   )
 }
 

@@ -20,7 +20,7 @@ class Store extends React.Component {
           name={d.name} 
           description={d.description} 
           id={d.id}   
-          handleDelete={this.handleDelete()}
+          handleDelete={this.handleDelete}
         />  
         )
       )
@@ -29,7 +29,14 @@ class Store extends React.Component {
 
   handleDelete = (id) => {
     axios.delete(`api/departments/${id}`)
-      .then(res => this.props.history.push('/'))
+      .then(res => {
+        const departments = this.state.departments.filter( department => {
+          if(department.id !== id)
+            return department
+              return null
+        })
+        this.setState({departments})
+      })
   }
 
   render() {

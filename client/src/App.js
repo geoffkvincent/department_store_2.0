@@ -6,6 +6,7 @@ import DepForm from './components/DepForm'
 import { Container } from 'semantic-ui-react'
 import styled from 'styled-components'
 import Navbar from './components/Navbar'
+import ItemForm from './components/ItemForm'
 
 class App extends React.Component {
   render() {
@@ -17,6 +18,7 @@ class App extends React.Component {
             <Route exact path="/" component={Store}/>
             <Route exact path="/departments/new" component={DepForm} />
             <Route exact path="/departments/:id" component={Items} />
+            <Route exact path="/departments/:id/items/new component={ItemForm}" />
           </Switch>
         </Container>
       </>

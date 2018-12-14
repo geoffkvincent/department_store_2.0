@@ -11,12 +11,7 @@ class Store extends React.Component {
     axios.get('api/departments')
       .then(res => this.setState({ departments: res.data }))
   }
-   componentDidUpdate(prevProps,prevState) {
    
-   }
-
-  
-
   renderDepartments = () => {
     return (
       this.state.departments.map(d => (
@@ -24,15 +19,12 @@ class Store extends React.Component {
           key={d.id} 
           name={d.name} 
           description={d.description} 
-          id={d.id}
-          
+          id={d.id}   
         />  
         )
       )
     )
   }
-
-  
 
   render() {
     return (
@@ -42,7 +34,6 @@ class Store extends React.Component {
           <button>Create Department</button>
         </Link>
         {this.renderDepartments()}
-        
       </div>
     )
   }

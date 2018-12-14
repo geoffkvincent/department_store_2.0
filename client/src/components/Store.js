@@ -42,7 +42,7 @@ class Store extends React.Component {
 
   render() {
     return (
-      <Segment>
+      <>
         <Header as='h1'>Department Store 2.0</Header>
         <Link to="/departments/new">
           <Button>Create Department</Button>
@@ -50,7 +50,7 @@ class Store extends React.Component {
         <Card.Group>
           {this.renderDepartments()}
         </Card.Group>
-      </Segment>
+      </>
     )
   }
 }

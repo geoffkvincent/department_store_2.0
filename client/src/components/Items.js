@@ -42,7 +42,7 @@ class Items extends React.Component {
           </Card.Content>
           <Card.Content extra>
             <Button>Edit</Button>
-            <Button onClick={() => this.deleteItem(item.id)}>Delete</Button>
+            <Button color="red" onClick={() => this.deleteItem(item.id)}>Delete</Button>
           </Card.Content>
         </Card>
         ))}

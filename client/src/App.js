@@ -17,6 +17,7 @@ class App extends React.Component {
           <Switch>
             <Route exact path="/" component={Store}/>
             <Route exact path="/departments/new" component={DepForm} />
+            <Route exact path="/departments/:id/edit" component={DepForm} />
             <Route exact path="/departments/:id" component={Items} />
             <Route exact path="/departments/:id/items/new" component={ItemForm} />
           </Switch>

@@ -1,9 +1,18 @@
 import React from 'react'
-import { Form } from 'semantic-ui-react'
+import { Form, Header } from 'semantic-ui-react'
 import axios from 'axios'
 
 class DepForm extends React.Component {
   state = { name: '', description: '' }
+
+  componentDidMount() {
+    const { id } = this.props.match.params
+    if (id) {
+      axios.get(`/api/departments/${id}`)
+        .then(res => this.setState({...res.data}))
+    }
+
+  }
 
   handleChange = (e) => {
     const { name, value } = e.target
@@ -18,26 +27,30 @@ class DepForm extends React.Component {
 
   render() {
     const {name, description} = this.state
+    const { id } = this.props.match.params
     return (
-      <Form onSubmit={this.handleSubmit}>
-        <Form.Input
-          name="name"
-          placeholder="Department"
-          label="Product:"
-          value={name}
-          onChange={this.handleChange}
-        />
-        <Form.Input
-          name="description"
-          placeholder="Description"
-          label="Description:"
-          value={description}
-          onChange={this.handleChange}
-        />
-        <Form.Button color="green">
-          Create
-        </Form.Button>
-      </Form>
+      <>
+        <Header>{id ? "Edit Department" : "New Department"}</Header>
+        <Form onSubmit={this.handleSubmit}>
+          <Form.Input
+            name="name"
+            placeholder="Department"
+            label="Department:"
+            value={name}
+            onChange={this.handleChange}
+            />
+          <Form.Input
+            name="description"
+            placeholder="Description"
+            label="Description:"
+            value={description}
+            onChange={this.handleChange}
+            />
+          <Form.Button color="green">
+            {id ? "Edit" : "Create"}
+          </Form.Button>
+        </Form>
+      </>
     )
   }
 }

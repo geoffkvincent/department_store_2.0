@@ -13,9 +13,12 @@ const Department = ({ name, description, id, handleDelete }) => {
       </Card.Content>
       <Card.Content>
         <Link to={`/departments/${id}`}>
+          <Button>View</Button>
+        </Link>
+        <Link to={`/departments/${id}/edit`}>
           <Button>Edit</Button>
         </Link>
-        <Button onClick={() => handleDelete(id)}>Delete</Button>
+        <Button color= "red" onClick={() => handleDelete(id)}>Delete</Button>
       </Card.Content>
     </Card>
   )

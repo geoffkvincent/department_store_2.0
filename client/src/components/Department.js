@@ -12,7 +12,7 @@ const Department = ({ name, description, id, handleDelete }) => {
         <Card.Description>{description}</Card.Description> 
       </Card.Content>
       <Card.Content>
-        <Link to={`/departments/${id}`}>
+        <Link to={{ pathname: `/departments/${id}`, state: { name }}} >
           <Button>View</Button>
         </Link>
         <Link to={`/departments/${id}/edit`}>

@@ -22,10 +22,13 @@ class DepForm extends React.Component {
   handleSubmit = (e) => {
     e.preventDefault()
     const { id } = this.props.match.params
-    if (id)
-      axios.put(`/api/departments`)
-    axios.post(('/api/departments'), {...this.state})
-      .then( res => this.props.history.push(`/departments/${res.data.id}`))
+    if (id) {
+      axios.put(`/api/departments/${id}`)
+        .then( res => this.props.history.push(`/departments/${res.data.id}`))
+    } else {
+      axios.post(('/api/departments'), {...this.state})
+        .then( res => this.props.history.push(`/departments/${res.data.id}`))
+    }
   }
 
   render() {

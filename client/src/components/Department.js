@@ -15,7 +15,7 @@ const Department = ({ name, description, id, handleDelete }) => {
         <Link to={{ pathname: `/departments/${id}`, state: { name }}} >
           <Button>View</Button>
         </Link>
-        <Link to={{ pathname: `/departments/${id}/edit`, state: { name, id }}}>
+        <Link to={`/departments/${id}/edit`}>
           <Button>Edit</Button>
         </Link>
         <Button color= "red" onClick={() => handleDelete(id)}>Delete</Button>

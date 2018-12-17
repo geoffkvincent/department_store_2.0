@@ -23,6 +23,7 @@ class DepForm extends React.Component {
     e.preventDefault()
     const { id } = this.props.match.params
     if (id)
+      axios.put(`/api/departments`)
     axios.post(('/api/departments'), {...this.state})
       .then( res => this.props.history.push(`/departments/${res.data.id}`))
   }

@@ -21,6 +21,7 @@ class DepForm extends React.Component {
 
   handleSubmit = (e) => {
     e.preventDefault()
+    
     axios.post(('/api/departments'), {...this.state})
       .then( res => this.props.history.push(`/departments/${res.data.id}`))
   }

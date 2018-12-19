@@ -31,20 +31,20 @@ class Items extends React.Component {
     return (    
       <>
         {this.state.items.map(item => (
-        <Card>
-          <Card.Content>
-            <div key={item.id}>
-              <Card.Header>{item.name}</Card.Header>
-              <Card.Meta>{`qty: ${item.qty}`}</Card.Meta>
-              <Card.Description>{`Description: ${item.description}`}</Card.Description>
-              <p>{`price: $${item.price}`}</p>
-            </div>
-          </Card.Content>
-          <Card.Content extra>
-            <Button>Edit</Button>
-            <Button color="red" onClick={() => this.deleteItem(item.id)}>Delete</Button>
-          </Card.Content>
-        </Card>
+          <div key={item.id}>
+            <Card>
+              <Card.Content>
+                  <Card.Header>{item.name}</Card.Header>
+                  <Card.Meta>{`qty: ${item.qty}`}</Card.Meta>
+                  <Card.Description>{`Description: ${item.description}`}</Card.Description>
+                  <p>{`price: $${item.price}`}</p>
+              </Card.Content>
+              <Card.Content extra>
+                <Button>Edit</Button>
+                <Button color="red" onClick={() => this.deleteItem(item.id)}>Delete</Button>
+              </Card.Content>
+            </Card>
+          </div>
         ))}
       </>
     )

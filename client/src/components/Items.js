@@ -31,7 +31,7 @@ class Items extends React.Component {
     return (    
       <>
         {this.state.items.map(item => (
-          <div key={item.id}>
+          <Fragment key={item.id}>
             <Card>
               <Card.Content>
                   <Card.Header>{item.name}</Card.Header>
@@ -44,7 +44,7 @@ class Items extends React.Component {
                 <Button color="red" onClick={() => this.deleteItem(item.id)}>Delete</Button>
               </Card.Content>
             </Card>
-          </div>
+          </Fragment>
         ))}
       </>
     )

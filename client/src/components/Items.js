@@ -54,7 +54,7 @@ class Items extends React.Component {
     const { name, id } = this.state.dep
     return(
       <>
-        <Header>{name}</Header>
+        <Header>{this.props.location.state.name}</Header>
         <Link to={`/departments/${id}/items/new`}>
           <Button onClick={this.addItem}>Add Item</Button>
         </Link>

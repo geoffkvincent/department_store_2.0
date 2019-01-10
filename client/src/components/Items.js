@@ -34,10 +34,10 @@ class Items extends React.Component {
           <Fragment key={item.id}>
             <Card>
               <Card.Content>
-                  <Card.Header>{item.name}</Card.Header>
-                  <Card.Meta>{`qty: ${item.qty}`}</Card.Meta>
-                  <Card.Description>{`Description: ${item.description}`}</Card.Description>
-                  <p>{`price: $${item.price}`}</p>
+                <Card.Header>{item.name}</Card.Header>
+                <Card.Meta>{`qty: ${item.qty}`}</Card.Meta>
+                <Card.Description>{`Description: ${item.description}`}</Card.Description>
+                <p>{`price: $${item.price}`}</p>
               </Card.Content>
               <Card.Content extra>
                 <Button>Edit</Button>
